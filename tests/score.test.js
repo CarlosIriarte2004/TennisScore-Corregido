@@ -1,93 +1,69 @@
-import { describe, it, expect } from '@jest/globals';
+import { describe, it, expect, beforeEach } from "@jest/globals";
+import { updateScore, resetGame } from "../src/tennis.js";
 
 describe("Tennis Score", () => {
-  let player1Score;
-  let player2Score;
-  let gameStatus;
-
-  // Función para reiniciar el estado antes de cada test
-  function resetGame() {
-    player1Score = 0;
-    player2Score = 0;
-    gameStatus = "Love-Love";
-  }
-
-  // Función que actualiza el marcador según quién anote
-  function updateScore(player) {
-    if (player === 1) {
-      player1Score++;
-    } else if (player === 2) {
-      player2Score++;
-    }
-
-    // Reglas especiales: Deuce, Ventaja y Game
-    if (player1Score >= 3 && player2Score >= 3) {
-      if (player1Score === player2Score) {
-        gameStatus = "Deuce";
-      } else if (player1Score === player2Score + 1) {
-        gameStatus = "Advantage Player 1";
-      } else if (player2Score === player1Score + 1) {
-        gameStatus = "Advantage Player 2";
-      } else if (player1Score >= player2Score + 2) {
-        gameStatus = "Game Player 1";
-      } else if (player2Score >= player1Score + 2) {
-        gameStatus = "Game Player 2";
-      }
-      return gameStatus;
-    }
-
-    // Puntajes normales (Love, 15, 30, 40)
-    const scoreNames = ["Love", "15", "30", "40"];
-    gameStatus = `${scoreNames[player1Score]}-${scoreNames[player2Score]}`;
-    return gameStatus;
-  }
-
-  // Reiniciamos antes de cada test
   beforeEach(() => {
     resetGame();
   });
 
   it("Empieza el juego en Love-Love", () => {
-    expect(gameStatus).toBe("Love-Love");
+    expect(resetGame()).toBe("Love-Love");
   });
 
-  it("Cambia a 15-Love cuando jugador 1 anota", () => {
+  it("Jugador 1 anota → 15-Love", () => {
+    expect(updateScore(1)).toBe("15-Love");
+  });
+
+  it("Jugador 2 anota → 15-15", () => {
     updateScore(1);
-    expect(gameStatus).toBe("15-Love");
+    expect(updateScore(2)).toBe("15-15");
   });
 
-  it("Cambia a 15-15 cuando jugador 2 anota", () => {
-    updateScore(1);
-    updateScore(2);
-    expect(gameStatus).toBe("15-15");
-  });
-
-  it("Cambia a 30-15 cuando jugador 1 anota nuevamente", () => {
+  it("Jugador 1 vuelve a anotar → 30-15", () => {
     updateScore(1);
     updateScore(2);
+    expect(updateScore(1)).toBe("30-15");
+  });
+
+  it("Ambos llegan a 40 → Deuce", () => {
+    updateScore(1); // 15-0
+    updateScore(1); // 30-0
+    updateScore(1); // 40-0
+    updateScore(2); // 40-15
+    updateScore(2); // 40-30
+    expect(updateScore(2)).toBe("Deuce");
+  });
+
+  it("Deuce → Advantage Player 1", () => {
+    updateScore(1); updateScore(1); updateScore(1); // 40-0
+    updateScore(2); updateScore(2); updateScore(2); // 40-40
+    expect(updateScore(1)).toBe("Advantage Player 1");
+  });
+
+  it("Ventaja → Deuce de nuevo", () => {
+    updateScore(1); updateScore(1); updateScore(1);
+    updateScore(2); updateScore(2); updateScore(2);
+    updateScore(1); // ventaja p1
+    expect(updateScore(2)).toBe("Deuce");
+  });
+
+  it("Jugador 1 gana desde ventaja", () => {
+    updateScore(1); updateScore(1); updateScore(1);
+    updateScore(2); updateScore(2); updateScore(2);
+    updateScore(1); // ventaja
+    expect(updateScore(1)).toBe("Game Player 1");
+  });
+
+  it("Jugador 2 gana el juego directo (40-0)", () => {
+    updateScore(2);
+    updateScore(2);
+    updateScore(2);
+    expect(updateScore(2)).toBe("Game Player 2");
+  });
+
+  it("Reset reinicia a Love-Love", () => {
     updateScore(1);
-    expect(gameStatus).toBe("30-15");
-  });
-
-  it("Llega a Deuce cuando ambos tienen 40", () => {
-    player1Score = 3;
-    player2Score = 3;
-    gameStatus = updateScore(1); // Simulamos el empate
-    gameStatus = "Deuce";
-    expect(gameStatus).toBe("Deuce");
-  });
-
-  it("Pasa a Advantage Player 1 desde Deuce", () => {
-    player1Score = 3;
-    player2Score = 3;
-    gameStatus = updateScore(1);
-    expect(gameStatus).toBe("Advantage Player 1");
-  });
-
-  it("Jugador 1 gana el juego después de Ventaja", () => {
-    player1Score = 4;
-    player2Score = 3;
-    gameStatus = updateScore(1);
-    expect(gameStatus).toBe("Game Player 1");
+    updateScore(2);
+    expect(resetGame()).toBe("Love-Love");
   });
 });
