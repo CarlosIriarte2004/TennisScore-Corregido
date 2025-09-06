@@ -57,12 +57,12 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "fbf5796efa6f887d5ec613aa391476980f9e0832",
     "author": "Carlitos",
     "commit": {
       "date": "2025-09-06T22:55:33.000Z",
       "message": "feat(score): actualizar marcador a Deuce cuando ambos jugadores lleguen a 40",
-      "url": "https://github.com/CarlosIriarte2004/TennisScore-Corregido/commit/HEAD"
+      "url": "https://github.com/CarlosIriarte2004/TennisScore-Corregido/commit/fbf5796efa6f887d5ec613aa391476980f9e0832"
     },
     "stats": {
       "total": 16,
@@ -74,5 +74,24 @@
     "test_count": 5,
     "failed_tests": 0,
     "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Carlitos",
+    "commit": {
+      "date": "2025-09-06T23:00:30.000Z",
+      "message": "feat(score): implementar lógica de marcador, incluyendo Deuce, Ventaja y Game",
+      "url": "https://github.com/CarlosIriarte2004/TennisScore-Corregido/commit/HEAD"
+    },
+    "stats": {
+      "total": 84,
+      "additions": 56,
+      "deletions": 28,
+      "date": "2025-09-06"
+    },
+    "coverage": 100,
+    "test_count": 8,
+    "failed_tests": 4,
+    "conclusion": "failure"
   }
 ]
