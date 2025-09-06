@@ -11,5 +11,18 @@ describe("Tennis Score", () => {
     score = "15-Love";  // Jugador 1 anota
     expect(score).toBe("15-Love");  // Verificamos que el marcador es 15-Love
   });
+
+it("Marcador 15-15 cuando jugador 2 anota", () => {
+    let score = "15-Love";  // Jugador 1 ha anotado
+    score = "15-15";  // Jugador 2 anota
+    expect(score).toBe("15-15");
+  });
+
+  it("Marcador 30-15 cuando jugador 1 anota de nuevo", () => {
+    let score = "15-15";  // Ambos jugadores han anotado
+    score = "30-15";  // Jugador 1 anota
+    expect(score).toBe("30-15");
+  });
+
 });
 

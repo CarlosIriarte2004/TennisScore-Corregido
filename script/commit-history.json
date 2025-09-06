@@ -19,12 +19,12 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "332e550c53a5daab65c6d27debad752a384426d1",
     "author": "Carlitos",
     "commit": {
       "date": "2025-09-06T22:28:18.000Z",
       "message": "feat(score): actualizar marcador a 15-Love cuando el Jugador 1 anota",
-      "url": "https://github.com/CarlosIriarte2004/TennisScore-Corregido/commit/HEAD"
+      "url": "https://github.com/CarlosIriarte2004/TennisScore-Corregido/commit/332e550c53a5daab65c6d27debad752a384426d1"
     },
     "stats": {
       "total": 6,
@@ -34,6 +34,25 @@
     },
     "coverage": 100,
     "test_count": 3,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Carlitos",
+    "commit": {
+      "date": "2025-09-06T22:37:42.000Z",
+      "message": "feat(score): actualizar marcador a 30-15 cuando el Jugador 1 anota",
+      "url": "https://github.com/CarlosIriarte2004/TennisScore-Corregido/commit/HEAD"
+    },
+    "stats": {
+      "total": 13,
+      "additions": 13,
+      "deletions": 0,
+      "date": "2025-09-06"
+    },
+    "coverage": 100,
+    "test_count": 5,
     "failed_tests": 0,
     "conclusion": "success"
   }
