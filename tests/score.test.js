@@ -24,5 +24,21 @@ it("Marcador 15-15 cuando jugador 2 anota", () => {
     expect(score).toBe("30-15");
   });
 
+    let player1Score = 0;
+    let player2Score = 0;
+
+    function updateScore(player) {
+    if (player === 1) {
+    player1Score++;
+    } else if (player === 2) {
+    player2Score++;
+    }
+
+    if (player1Score === 3 && player2Score === 3) {
+    return "Deuce";
+  }
+}
+
+
 });
 
