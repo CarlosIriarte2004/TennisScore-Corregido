@@ -1,0 +1,21 @@
+[
+  {
+    "sha": "HEAD",
+    "author": "Carlitos",
+    "commit": {
+      "date": "2025-09-06T22:23:32.000Z",
+      "message": "Inicializar proyecto y agregar archivos base",
+      "url": "https://github.com/CarlosIriarte2004/TennisScore-Corregido/commit/HEAD"
+    },
+    "stats": {
+      "total": 11751,
+      "additions": 3910,
+      "deletions": 7841,
+      "date": "2025-09-06"
+    },
+    "coverage": 100,
+    "test_count": 2,
+    "failed_tests": 0,
+    "conclusion": "success"
+  }
+]
