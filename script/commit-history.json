@@ -76,17 +76,36 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "c03907cd4972def60715b48e97601ed0026eb1c5",
     "author": "Carlitos",
     "commit": {
       "date": "2025-09-06T23:00:30.000Z",
       "message": "feat(score): implementar lógica de marcador, incluyendo Deuce, Ventaja y Game",
-      "url": "https://github.com/CarlosIriarte2004/TennisScore-Corregido/commit/HEAD"
+      "url": "https://github.com/CarlosIriarte2004/TennisScore-Corregido/commit/c03907cd4972def60715b48e97601ed0026eb1c5"
     },
     "stats": {
       "total": 84,
       "additions": 56,
       "deletions": 28,
+      "date": "2025-09-06"
+    },
+    "coverage": 100,
+    "test_count": 8,
+    "failed_tests": 4,
+    "conclusion": "failure"
+  },
+  {
+    "sha": "HEAD",
+    "author": "Carlitos",
+    "commit": {
+      "date": "2025-09-06T23:06:36.000Z",
+      "message": "feat(score): agregar lógica de marcador con Deuce, Ventaja y Game",
+      "url": "https://github.com/CarlosIriarte2004/TennisScore-Corregido/commit/HEAD"
+    },
+    "stats": {
+      "total": 57,
+      "additions": 30,
+      "deletions": 27,
       "date": "2025-09-06"
     },
     "coverage": 100,
