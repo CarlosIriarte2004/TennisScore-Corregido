@@ -16,7 +16,17 @@ function updateScore(player) {
     player2Score++;
   }
 
-  // Casos especiales: Deuce, Advantage, Game
+  // Verifica quién ganó
+  if (player1Score >= 4 && player1Score - player2Score >= 2) {
+    gameStatus = "Game Player 1";
+    return gameStatus;
+  }
+  if (player2Score >= 4 && player2Score - player1Score >= 2) {
+    gameStatus = "Game Player 2";
+    return gameStatus;
+  }
+
+  // Casos especiales: Deuce, Advantage
   if (player1Score >= 3 && player2Score >= 3) {
     if (player1Score === player2Score) {
       gameStatus = "Deuce";
@@ -24,15 +34,11 @@ function updateScore(player) {
       gameStatus = "Advantage Player 1";
     } else if (player2Score === player1Score + 1) {
       gameStatus = "Advantage Player 2";
-    } else if (player1Score >= player2Score + 2) {
-      gameStatus = "Game Player 1";
-    } else if (player2Score >= player1Score + 2) {
-      gameStatus = "Game Player 2";
     }
     return gameStatus;
   }
 
-  // Casos normales: Love, 15, 30, 40
+  // Casos normales
   gameStatus = `${scoreNames[player1Score]}-${scoreNames[player2Score]}`;
   return gameStatus;
 }
@@ -48,4 +54,5 @@ function resetGame() {
   return gameStatus;
 }
 
+// Exporta las funciones para usar en los tests y en index.html
 export { updateScore, resetGame };
